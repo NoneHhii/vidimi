@@ -2,54 +2,33 @@ import React from "react";
 import type { LucideIcon } from "lucide-react";
 
 interface StepCardProps {
-    step: string;
+    step: string; // Keep for interface compatibility if needed, but we don't display it in new UI
     title: string;
     desc: string;
     icon: LucideIcon;
-    gradient: string;
-    badgeColor: string;
+    gradient?: string; 
+    badgeColor?: string;
 }
 
-export const StepCard: React.FC<StepCardProps> = ({
-    step,
-    title,
-    desc,
-    icon: Icon,
-    gradient,
-    badgeColor,
-}) => {
+export const StepCard: React.FC<StepCardProps> = ({ title, desc, icon: Icon }) => {
     return (
-        <div className="group relative rounded-3xl p-[1px] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(124,58,237,0.3)]">
-            {/* Đường viền phát sáng Gradient Neon */}
-            <div
-                className={`absolute inset-0 rounded-3xl bg-gradient-to-b ${gradient} opacity-40 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]`}
-            />
-
-            {/* Thân Card Glassmorphism có chiều sâu */}
-            <div className="relative h-full rounded-[23px] bg-slate-950/40 backdrop-blur-3xl p-7 flex flex-col justify-between border border-white/[0.08] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                {/* Ánh sáng ngầm bên trong Card */}
-                <div className="absolute -right-10 -top-10 w-36 h-36 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/25 transition-colors" />
-
-                <div>
-                    {/* Header icon + Step number */}
-                    <div className="flex items-center justify-between mb-6">
-                        <div className={`w-14 h-14 rounded-2xl ${badgeColor} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                            <Icon className="w-7 h-7" />
-                        </div>
-                        <span className="text-3xl font-black text-white/20 font-mono group-hover:text-white/40 transition-colors">
-                            {step}
-                        </span>
-                    </div>
-
-                    <h3 className="text-xl font-extrabold text-white mb-2 tracking-tight group-hover:text-amber-300 transition-colors">
-                        {title}
-                    </h3>
-                    <p className="text-sm text-slate-300/80 leading-relaxed font-normal">
-                        {desc}
-                    </p>
-                </div>
-
+        <div className="flex flex-col items-center text-center group cursor-default w-full max-w-[280px] mx-auto">
+            {/* Khối ô vuông Glassmorphism chứa Icon */}
+            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-white/20 backdrop-blur-2xl rounded-[2rem] md:rounded-[2.5rem] border border-white/40 shadow-[0_15px_40px_rgba(0,0,0,0.3)] flex items-center justify-center mb-5 md:mb-6 overflow-hidden relative group-hover:-translate-y-3 group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.5)] transition-all duration-500">
+                {/* Ánh sáng viền mờ ảo bên trong */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-50" />
+                
+                {/* Icon màu siêu đậm (gần như đen/chì) như ảnh mẫu */}
+                <Icon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-slate-900 drop-shadow-md relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={2.5} />
             </div>
+
+            {/* Văn bản bên dưới */}
+            <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white mb-2 tracking-wide group-hover:text-amber-200 transition-colors drop-shadow-lg uppercase">
+                {title}
+            </h3>
+            <p className="text-[10px] sm:text-xs md:text-sm text-slate-100 leading-relaxed font-medium drop-shadow-md px-2">
+                {desc}
+            </p>
         </div>
     );
 };
