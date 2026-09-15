@@ -1,43 +1,74 @@
 import React from "react";
 import { motion } from "framer-motion";
+import specialTextSvg from "../assets/special_text.svg";
 
 export const SpecialFeaturesSection: React.FC = () => {
     return (
-        <section className="relative w-full min-h-[85vh] py-16 px-4 md:px-8 flex flex-col justify-center overflow-hidden">
+        <section className="relative w-full min-h-[85vh] py-16 px-3 md:px-8 flex flex-col justify-center overflow-hidden">
             {/* Tiêu đề chính */}
             <motion.div
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="relative z-10 w-full max-w-6xl mx-auto flex flex-row flex-wrap sm:flex-nowrap items-center justify-center md:justify-start gap-4 md:gap-8 mb-16 md:mb-32 px-2 md:pl-10"
+                className="relative z-10 w-full max-w-6xl mx-auto flex flex-row flex-wrap sm:flex-nowrap items-center justify-center md:justify-start mb-16 md:mb-32 px-2 md:pl-10"
             >
                 {/* Khối chữ bên trái */}
-                <div className="flex flex-col items-center md:items-start text-center md:text-left z-20">
-                    <p className="text-xl sm:text-3xl md:text-4xl font-bold text-white tracking-wide mb-0 drop-shadow-md">
+                <div
+                    className="flex flex-col items-center md:items-start text-center md:text-left z-30 relative"
+                    style={{ filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.7))" }}
+                >
+                    <p className="text-[1.8rem] sm:text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] font-bold text-white tracking-wide mb-0 leading-none">
                         Điều gì khiến
                     </p>
-                    <span className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-wider drop-shadow-lg leading-none mt-1 md:mt-2">
+                    <span className="text-[3rem] sm:text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-black text-white tracking-wider leading-none mt-2">
                         Vidimi
                     </span>
                 </div>
 
                 {/* Chữ Đặc biệt xoay nghiêng bên phải */}
-                <motion.span
-                    initial={{ opacity: 0, scale: 0.5, rotate: -38 }}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.6, rotate: -30 }}
                     whileInView={{ opacity: 1, scale: 1, rotate: -15 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, type: "spring", bounce: 0.5, delay: 0.2 }}
-                    className="text-[2.5rem] sm:text-6xl md:text-[5rem] font-bold transform -rotate-[15deg] inline-block text-white z-10 md:-mt-10 lg:-mt-34 ml-2 sm:ml-0"
+                    transition={{ duration: 0.7, type: "spring", bounce: 0.45, delay: 0.2 }}
+                    className="relative inline-block select-none z-10 md:-mt-4 lg:-mt-10 -ml-2 sm:-ml-2 md:ml-4 lg:ml-4 text-[3.2rem] sm:text-[4.5rem] md:text-[5rem] lg:text-[6rem] font-black tracking-widest"
                     style={{
-                        WebkitTextStroke: "2px #d946ef", /* fuchsia-500 (mỏng hơn chút trên mobile) */
-                        textShadow: "2px 2px 0px #d946ef, 4px 4px 0px #d946ef, 6px 6px 0px #d946ef, 8px 8px 15px rgba(0,0,0,0.5)",
                         fontFamily: '"Goldman", sans-serif',
-                        lineHeight: '1.2'
+                        lineHeight: "1.1"
                     }}
                 >
-                    Đặc biệt?
-                </motion.span>
+                    {/* LỚP NỀN (Nằm dưới cùng): Viền trắng 15px + Bóng đổ đen */}
+                    {/* Để có 15px viền ngoài, dùng WebkitTextStroke 30px */}
+                    <span
+                        className="absolute inset-0 z-0 text-white"
+                        style={{
+                            WebkitTextStroke: "30px white",
+                            filter: "drop-shadow(0px 4px 20px rgba(0,0,0,1))"
+                        }}
+                    >
+                        Đặc biệt?
+                    </span>
+
+                    {/* LỚP TRÊN (Nằm giữa): Viền hồng 10px + Bóng đổ đè lên viền trắng */}
+                    {/* Để có 10px viền ngoài, dùng WebkitTextStroke 20px */}
+                    <span
+                        className="absolute inset-0 z-10 text-[#E802EF]"
+                        style={{
+                            WebkitTextStroke: "20px #E802EF",
+                            filter: "drop-shadow(0px 4px 20px rgba(0,0,0,1))"
+                        }}
+                    >
+                        Đặc biệt?
+                    </span>
+
+                    {/* LÕI CHỮ TRẮNG (Nằm trên cùng): Trắng tinh, che lấp phần stroke lẹm vào trong */}
+                    <span
+                        className="relative z-20 text-white"
+                    >
+                        Đặc biệt?
+                    </span>
+                </motion.div>
             </motion.div>
 
             {/* 4 Thẻ Tính năng (Glassmorphism dạng card mờ) */}
@@ -55,12 +86,18 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="bg-gradient-to-b from-white/30 to-white/10 backdrop-blur-xl border border-white/40 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-start text-center min-h-[140px] sm:min-h-[170px] shadow-[0_10px_25px_rgba(0,0,0,0.25)] hover:border-white/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(0,0,0,0.4)]"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
                 >
-                    <h3 className="text-sm sm:text-lg font-black text-white uppercase tracking-tight mb-1.5 sm:mb-2.5 drop-shadow leading-tight">
+                    <h3
+                        className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
+                        style={{ textShadow: "0px 4px 15px rgba(0,0,0,0.8)" }}
+                    >
                         Tích Từ Mọi<br />Thương Hiệu
                     </h3>
-                    <p className="text-[10px] sm:text-[13px] text-white/90 leading-relaxed font-normal">
+                    <p
+                        className="text-xs sm:text-sm text-white/95 leading-relaxed font-normal italic"
+                        style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.5)" }}
+                    >
                         Hàng ngàn hóa đơn<br />từ mọi thương hiệu
                     </p>
                 </motion.div>
@@ -71,13 +108,19 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="bg-gradient-to-b from-white/30 to-white/10 backdrop-blur-xl border border-white/40 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-start text-center min-h-[140px] sm:min-h-[170px] shadow-[0_10px_25px_rgba(0,0,0,0.25)] hover:border-white/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(0,0,0,0.4)]"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
                 >
-                    <h3 className="text-sm sm:text-lg font-black text-white uppercase tracking-tight mb-1.5 sm:mb-2.5 drop-shadow leading-tight">
+                    <h3
+                        className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
+                        style={{ textShadow: "0px 4px 15px rgba(0,0,0,0.8)" }}
+                    >
                         Điểm Không<br />Giới Hạn
                     </h3>
-                    <p className="text-[10px] sm:text-[13px] text-white/90 leading-relaxed font-normal">
-                        Tích lũy điểm không giới hạn thời gian.
+                    <p
+                        className="text-xs sm:text-sm text-white/95 leading-relaxed font-normal italic"
+                        style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.5)" }}
+                    >
+                        Tích lũy điểm mà<br />không mất về thời<br />hạn. Điểm của bạn<br />luôn có giá trị.
                     </p>
                 </motion.div>
 
@@ -87,13 +130,19 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="bg-gradient-to-b from-white/30 to-white/10 backdrop-blur-xl border border-white/40 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-start text-center min-h-[140px] sm:min-h-[170px] shadow-[0_10px_25px_rgba(0,0,0,0.25)] hover:border-white/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(0,0,0,0.4)]"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
                 >
-                    <h3 className="text-sm sm:text-lg font-black text-white uppercase tracking-tight mb-1.5 sm:mb-2.5 drop-shadow leading-tight">
+                    <h3
+                        className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
+                        style={{ textShadow: "0px 4px 15px rgba(0,0,0,0.8)" }}
+                    >
                         Tự Động<br />Nhận Diện
                     </h3>
-                    <p className="text-[10px] sm:text-[13px] text-white/90 leading-relaxed font-normal">
-                        Không cần nhập thủ công. AI xử lý tất cả.
+                    <p
+                        className="text-xs sm:text-sm text-white/95 leading-relaxed font-normal italic"
+                        style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.5)" }}
+                    >
+                        Không cần nhập<br />công cụ thủ công.<br />Chụp hóa đơn một<br />lần, AI xử lý tất cả.
                     </p>
                 </motion.div>
 
@@ -103,13 +152,19 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="bg-gradient-to-b from-white/30 to-white/10 backdrop-blur-xl border border-white/40 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-start text-center min-h-[140px] sm:min-h-[170px] shadow-[0_10px_25px_rgba(0,0,0,0.25)] hover:border-white/70 transition-all hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(0,0,0,0.4)]"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
                 >
-                    <h3 className="text-sm sm:text-lg font-black text-white uppercase tracking-tight mb-1.5 sm:mb-2.5 drop-shadow leading-tight">
+                    <h3
+                        className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
+                        style={{ textShadow: "0px 4px 15px rgba(0,0,0,0.8)" }}
+                    >
                         Nhanh chóng<br />Tiện lợi
                     </h3>
-                    <p className="text-[10px] sm:text-[13px] text-white/90 leading-relaxed font-normal">
-                        Sẵn sàng ghi điểm bất kỳ đâu, bất kỳ lúc nào.
+                    <p
+                        className="text-xs sm:text-sm text-white/95 leading-relaxed font-normal italic"
+                        style={{ textShadow: "0px 2px 4px rgba(0,0,0,0.5)" }}
+                    >
+                        Mua sắm ở bất kỳ đâu,<br />bất kỳ lúc nào. Vidimi<br />đã sẵn sàng ghi điểm<br />nhận của bạn.
                     </p>
                 </motion.div>
 

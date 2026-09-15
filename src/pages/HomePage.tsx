@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
                     </div>
 
                     {/* Cột phải: Video bay 3D tách nền xanh */}
-                    <div className="flex relative w-full lg:w-[500px] h-[300px] lg:h-[450px] items-end justify-center lg:right-4 mt-8 lg:mt-0 scale-90 sm:scale-100 origin-bottom translate-y-4 lg:translate-y-12">
+                    <div className="flex relative w-full lg:w-[800px] h-[300px] lg:h-[450px] items-end justify-center lg:right-4 mt-8 lg:mt-0 scale-90 sm:scale-100 origin-bottom translate-y-4 lg:translate-y-12">
                         <div 
                             className="w-full flex justify-center"
                             style={{ 
