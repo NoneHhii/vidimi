@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import specialTextSvg from "../assets/special_text.svg";
+// import specialTextSvg from "../assets/special_text.svg";
 
 export const SpecialFeaturesSection: React.FC = () => {
     return (
@@ -86,7 +86,7 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px]"
                 >
                     <h3
                         className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
@@ -108,7 +108,7 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px]"
                 >
                     <h3
                         className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
@@ -130,7 +130,7 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px]"
                 >
                     <h3
                         className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
@@ -152,7 +152,7 @@ export const SpecialFeaturesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px] transition-transform duration-300 hover:-translate-y-2"
+                    className="glass-feature-card p-4 sm:p-6 flex flex-col items-center justify-start text-center aspect-square sm:aspect-auto sm:min-h-[250px]"
                 >
                     <h3
                         className="text-base sm:text-xl md:text-2xl font-black text-white tracking-tight mb-2 sm:mb-4 leading-snug"
