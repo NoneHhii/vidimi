@@ -1,5 +1,5 @@
 import type React from "react";
-import bannerBg from "../assets/banner.jpg";
+import bannerBg from "../assets/vecteezy_minimal-geometric-gradient-background-abstract-dynamic_25417552.jpg";
 import bannerVideo from "../assets/banner_gif.mp4";
 import { HowItWorksSection } from "../components/HowItWorksSection";
 import { VideoSection } from "../components/VideoSection";
@@ -15,9 +15,7 @@ const HomePage: React.FC = () => {
                 className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat w-full h-full"
                 style={{ backgroundImage: `url(${bannerBg})` }}
             >
-                {/* Lớp phủ màu cố định cho TOÀN BỘ trang */}
-                <div className="absolute inset-0 bg-[#b600c4] mix-blend-color opacity-40 pointer-events-none"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#b600c4]/40 via-[#b600c4]/10 to-[#550060]/40 pointer-events-none"></div>
+                {/* Đã gỡ bỏ các lớp màu đệm theo yêu cầu */}
             </div>
 
             {/* Nội dung trang */}
