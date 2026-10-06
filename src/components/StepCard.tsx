@@ -5,12 +5,13 @@ interface StepCardProps {
     step: string; // Keep for interface compatibility if needed, but we don't display it in new UI
     title: string;
     desc: string;
-    icon: LucideIcon;
+    icon?: LucideIcon;
+    imageSrc?: string;
     gradient?: string; 
     badgeColor?: string;
 }
 
-export const StepCard: React.FC<StepCardProps> = ({ title, desc, icon: Icon }) => {
+export const StepCard: React.FC<StepCardProps> = ({ title, desc, icon: Icon, imageSrc }) => {
     return (
         <div className="flex flex-col items-center text-center w-full max-w-[280px] mx-auto">
             {/* Khối ô vuông Glassmorphism chứa Icon */}
@@ -18,8 +19,12 @@ export const StepCard: React.FC<StepCardProps> = ({ title, desc, icon: Icon }) =
                 {/* Ánh sáng viền mờ ảo bên trong */}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent opacity-50" />
                 
-                {/* Icon màu siêu đậm (gần như đen/chì) như ảnh mẫu */}
-                <Icon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-slate-900 drop-shadow-md relative z-10 transition-transform duration-500" strokeWidth={2.5} />
+                {/* Icon màu siêu đậm (gần như đen/chì) hoặc Ảnh PNG */}
+                {imageSrc ? (
+                    <img src={imageSrc} alt={title} className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain relative z-10 transition-transform duration-500" />
+                ) : Icon ? (
+                    <Icon className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-slate-900 drop-shadow-md relative z-10 transition-transform duration-500" strokeWidth={2.5} />
+                ) : null}
             </div>
 
             {/* Văn bản bên dưới */}

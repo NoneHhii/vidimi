@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -170,6 +171,7 @@ code {
   padding: 1.2px; /* Độ dày viền */
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.486) 50%, rgba(255, 255, 255, 0.216) 68%, rgba(255, 255, 255, 0) 100%, rgba(255, 255, 255, 0.189) 132%, rgba(255, 255, 255, 0.432) 150%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   pointer-events: none;

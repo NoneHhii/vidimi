@@ -1,6 +1,8 @@
 import React from "react";
 import { StepCard } from "./StepCard";
-import { ScanLine, CircleDollarSign, Gift } from "lucide-react";
+import phoneImg from "../assets/phone.png";
+import earnPointImg from "../assets/earn_point.png";
+import loyalImg from "../assets/loyal.png";
 import { motion } from "framer-motion";
 
 export const HowItWorksSection: React.FC = () => {
@@ -10,7 +12,7 @@ export const HowItWorksSection: React.FC = () => {
         >
             {/* KHU VỰC TEXT (Có nền #1E0A4D như yêu cầu) */}
             <div className="w-full bg-[#1E0A4D] relative z-30 pt-24 pb-16 px-4 md:px-8 flex flex-col items-center shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -31,7 +33,7 @@ export const HowItWorksSection: React.FC = () => {
             {/* KHU VỰC TRUNG TÂM - 3 THẺ TĨNH TRÊN NỀN TRONG SUỐT (Thấy trọn vẹn Parallax) */}
             <div className="relative z-20 w-full flex-1 flex flex-col justify-center px-4 md:px-8 py-10">
                 {/* Các thẻ Items */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
@@ -43,7 +45,7 @@ export const HowItWorksSection: React.FC = () => {
                             step="01"
                             title="Chụp hóa đơn"
                             desc="Chụp ảnh hóa đơn của bạn bằng camera điện thoại và tải trực tiếp lên Vidimi."
-                            icon={ScanLine}
+                            imageSrc={phoneImg}
                         />
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
@@ -51,7 +53,7 @@ export const HowItWorksSection: React.FC = () => {
                             step="02"
                             title="Tích điểm"
                             desc="Tự động tích điểm cho tài khoản của bạn dựa trên giá trị hóa đơn."
-                            icon={CircleDollarSign}
+                            imageSrc={earnPointImg}
                         />
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.5 }}>
@@ -59,7 +61,7 @@ export const HowItWorksSection: React.FC = () => {
                             step="03"
                             title="Đổi quà"
                             desc="Tích lũy điểm và đổi quà tặng, voucher hoặc các ưu đãi hấp dẫn khác."
-                            icon={Gift}
+                            imageSrc={loyalImg}
                         />
                     </motion.div>
                 </motion.div>

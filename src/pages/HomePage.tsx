@@ -9,7 +9,7 @@ import { RewardsSection } from "../components/RewardsSection";
 
 const HomePage: React.FC = () => {
     return (
-        <div className="w-full selection:bg-orange-500 selection:text-white font-sans relative">
+        <div className="w-full selection:bg-orange-500 selection:text-white font-sans relative overflow-x-hidden">
             {/* Tối ưu hóa Hiệu suất (Chống lag): Dùng layer fixed riêng biệt thay vì bg-fixed */}
             <div
                 className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat w-full h-full"
@@ -28,9 +28,9 @@ const HomePage: React.FC = () => {
                     {/* Khối nội dung chính */}
                     <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 h-full flex flex-col lg:flex-row items-center justify-center lg:justify-between pt-16 lg:pt-0">
                         {/* Cột trái: Văn bản */}
-                        <div className="max-w-xl z-20 text-center lg:text-left flex flex-col items-center lg:items-start">
+                        <div className="max-w-xl z-20 text-center lg:text-left flex flex-col items-center lg:items-start lg:pl-16 pt-10">
                             {/* Tag Badge */}
-                            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs md:text-sm font-semibold tracking-wide shadow-sm">
+                            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs md:text-sm font-semibold tracking-wide shadow-sm lg:-ml-12">
                                 Tích điểm từ bất kỳ hóa đơn nào
                             </div>
 
@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
                                         fontSize: "0.9em",
                                     }}
                                 >
-                                    trôi đi...
+                                    trôi đi
                                 </span>
                             </h1>
 
@@ -79,13 +79,13 @@ const HomePage: React.FC = () => {
                         </div>
 
                         {/* Cột phải: Video bay 3D tách nền xanh */}
-                        <div className="flex relative w-full lg:w-[800px] h-[300px] lg:h-[450px] items-end justify-center lg:right-4 mt-8 lg:mt-0 scale-90 sm:scale-100 origin-bottom lg:self-end translate-y-[15%] lg:translate-y-[30%]">
+                        <div className="flex relative w-full lg:w-[900px] h-[350px] lg:h-[550px] items-end justify-center lg:right-4 mt-12 lg:mt-0 scale-110 sm:scale-125 lg:scale-[1.3] origin-bottom lg:self-end translate-y-[25%] lg:translate-y-[30%]">
                             <div className="w-full flex justify-center">
                                 <ChromaKeyVideo
                                     src={bannerVideo}
-                                    className="w-[120%] lg:w-[150%] max-w-[800px]"
-                                    width={800}
-                                    height={800}
+                                    className="w-[140%] lg:w-[170%] max-w-[1400px]"
+                                    width={1200}
+                                    height={1200}
                                 />
                             </div>
                         </div>
