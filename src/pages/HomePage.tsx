@@ -15,22 +15,21 @@ const HomePage: React.FC = () => {
                 className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat w-full h-full"
                 style={{ backgroundImage: `url(${bannerBg})` }}
             >
-                {/* Đã gỡ bỏ các lớp màu đệm theo yêu cầu */}
             </div>
 
             {/* Nội dung trang */}
             <div className="relative z-10">
                 {/* Hero Banner Section */}
-                <section className="relative w-full min-h-[520px] md:h-[580px] flex overflow-hidden">
+                <section className="relative w-full min-h-[720px] md:h-[580px] flex overflow-hidden">
 
 
 
                     {/* Khối nội dung chính */}
                     <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 h-full flex flex-col lg:flex-row items-center justify-center lg:justify-between pt-16 lg:pt-0">
                         {/* Cột trái: Văn bản */}
-                        <div className="max-w-xl z-20 text-center lg:text-left flex flex-col items-center lg:items-start lg:pl-16 pt-10">
+                        <div className="max-w-xl z-20 text-center lg:text-left flex flex-col items-center lg:items-start lg:pl-10 pt-10">
                             {/* Tag Badge */}
-                            <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs md:text-sm font-semibold tracking-wide shadow-sm lg:-ml-12">
+                            <div className="flex items-center justify-center w-fit px-5 py-2 lg:py-2.5 rounded-[8px] bg-[#6366F1]/20 backdrop-blur-[10px] border border-white/30 text-white text-xs lg:text-sm font-semibold tracking-wide shadow-sm self-center lg:self-start lg:ml-[120px]">
                                 Tích điểm từ bất kỳ hóa đơn nào
                             </div>
 
@@ -45,7 +44,7 @@ const HomePage: React.FC = () => {
                                 drop-shadow-[0_6px_8px_rgba(0,0,0,0.35)]
                             "
                                 style={{
-                                    fontSize: "clamp(3.2rem, 6.5vw, 5rem)",
+                                    fontSize: "clamp(3.2rem, 6vw, 4.8rem)",
                                 }}
                             >
                                 <span className="block">
