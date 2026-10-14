@@ -26,10 +26,18 @@ export const ChromaKeyVideo: React.FC<ChromaKeyVideoProps> = ({ src, className =
                 return;
             }
 
-            // Đảm bảo canvas có kích thước khớp với video
-            if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
-                canvas.width = video.videoWidth || width;
-                canvas.height = video.videoHeight || height;
+            // Tối ưu hiệu năng: Giới hạn độ phân giải xử lý ChromaKey vừa đủ sắc nét
+            const maxDim = 1280;
+            let targetW = video.videoWidth || width;
+            let targetH = video.videoHeight || height;
+            if (targetW > maxDim) {
+                targetH = Math.round((targetH * maxDim) / targetW);
+                targetW = maxDim;
+            }
+
+            if (canvas.width !== targetW || canvas.height !== targetH) {
+                canvas.width = targetW;
+                canvas.height = targetH;
             }
 
             if (video.videoWidth === 0 || video.videoHeight === 0) {
@@ -43,24 +51,24 @@ export const ChromaKeyVideo: React.FC<ChromaKeyVideoProps> = ({ src, className =
             // Lấy dữ liệu điểm ảnh (pixel data)
             const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = frame.data;
-            const length = data.length;
+            const data32 = new Uint32Array(data.buffer);
+            const numPixels = data32.length;
 
-            // Duyệt qua từng pixel (mỗi pixel chiếm 4 vị trí r, g, b, a)
-            for (let i = 0; i < length; i += 4) {
-                const r = data[i + 0];
-                const g = data[i + 1];
-                const b = data[i + 2];
+            // Xử lý Chroma Key siêu tốc bằng 32-bit integer
+            for (let i = 0; i < numPixels; i++) {
+                const pixel = data32[i];
+                const r = pixel & 0xff;
+                const g = (pixel >> 8) & 0xff;
+                const b = (pixel >> 16) & 0xff;
 
-                // Thuật toán Chroma Key (phát hiện phông xanh lá)
-                // Phông xanh chuẩn thường có G rất cao, R và B thấp.
-                // Tùy chỉnh thông số này nếu video xanh đậm/nhạt khác nhau.
-                if (g > 100 && g > r * 1.4 && g > b * 1.4) {
-                    // Biến điểm ảnh thành trong suốt
-                    data[i + 3] = 0;
-                }
-                // Có thể khử ám xanh ở viền (Spill Suppression)
-                else if (g > r && g > b) {
-                    data[i + 1] = Math.max(r, b); // Giảm kênh green xuống
+                // Thuật toán phát hiện phông xanh lá
+                if (g > 90 && g > r * 1.35 && g > b * 1.35) {
+                    data32[i] = 0; // Trong suốt hoàn toàn
+                } else if (g > r && g > b) {
+                    // Khử ám viền xanh (Spill suppression)
+                    const newG = Math.max(r, b);
+                    const a = (pixel >> 24) & 0xff;
+                    data32[i] = (a << 24) | (b << 16) | (newG << 8) | r;
                 }
             }
 
@@ -87,7 +95,7 @@ export const ChromaKeyVideo: React.FC<ChromaKeyVideoProps> = ({ src, className =
     }, [width, height]);
 
     return (
-        <div className={`relative ${className}`} style={{ width: '100%', maxWidth: width, aspectRatio: `${width}/${height}` }}>
+        <div className={`relative ${className}`} style={{ width: '100%', aspectRatio: `${width}/${height}` }}>
             {/* Video gốc bị ẩn đi */}
             <video
                 ref={videoRef}
