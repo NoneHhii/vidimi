@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
                         </div>
 
                         {/* Cột phải: Video bay 3D tách nền xanh */}
-                        <div className="flex relative w-full lg:w-[900px] h-[350px] lg:h-[550px] items-end justify-center lg:right-4 mt-12 lg:mt-0 scale-110 sm:scale-125 lg:scale-[1.3] origin-bottom lg:self-end translate-y-[25%] lg:translate-y-[30%]">
+                        <div className="flex relative w-full lg:w-[900px] h-[350px] lg:h-[550px] items-end justify-center lg:right-4 mt-12 lg:mt-0 scale-110 sm:scale-125 lg:scale-[1.3] origin-bottom lg:self-end translate-y-[30%] lg:translate-y-[30%]">
                             <div className="w-full flex justify-center">
                                 <ChromaKeyVideo
                                     src={bannerVideo}

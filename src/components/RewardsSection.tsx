@@ -23,22 +23,23 @@ const MARQUEE_ITEMS = [...REWARD_ITEMS, ...REWARD_ITEMS, ...REWARD_ITEMS, ...REW
 
 export const RewardsSection: React.FC = () => {
     return (
-        <section className="relative w-full h-screen min-h-[600px] max-h-[900px] flex flex-col justify-start overflow-hidden font-sans select-none pt-24 sm:pt-28 md:pt-32">
+        <section className="relative w-full min-h-[500px] sm:min-h-[620px] md:min-h-[720px] flex flex-col justify-start overflow-hidden font-sans select-none pt-10 sm:pt-16 pb-16">
 
-            {/* Tiêu đề "Phần Thưởng" */}
+            {/* Tiêu đề "Quà Tặng" căn lề tự nhiên */}
             <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative z-20 pl-6 sm:pl-12 md:pl-20 mb-2 sm:mb-4 pointer-events-none"
+                className="w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-20 mb-6 sm:mb-10 md:mb-14 z-20 pointer-events-none"
             >
-                <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] font-black text-white tracking-wide capitalize drop-shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.8rem] font-black text-white tracking-wide capitalize drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
                     Quà Tặng
                 </h2>
             </motion.div>
 
-            <div className="w-full relative z-10 flex-1 flex items-start sm:items-center -mt-4 sm:mt-0 overflow-hidden">
+            {/* Khung chứa Marquee - Ép w-full căn giữa chuẩn tuyệt đối */}
+            <div className="w-full relative z-10 flex items-center justify-center overflow-hidden">
                 <motion.div
                     className="flex items-center w-max"
                     style={{
@@ -48,7 +49,7 @@ export const RewardsSection: React.FC = () => {
                     animate={{ x: "-50%" }}
                     transition={{
                         ease: "linear",
-                        duration: 50, // Điều chỉnh tốc độ
+                        duration: 38,
                         repeat: Infinity,
                         repeatType: "loop",
                     }}
@@ -56,13 +57,15 @@ export const RewardsSection: React.FC = () => {
                     {MARQUEE_ITEMS.map((item, index) => (
                         <div
                             key={`${item.id}-${index}`}
-                            className="w-screen flex-shrink-0 flex items-center justify-center px-4"
+                            /* Thay w-screen bằng w-[100vw] kèm flex justify-center */
+                            className="w-[100vw] flex-shrink-0 flex items-center justify-center px-4"
                         >
-                            <div className="w-[320px] sm:w-[480px] md:w-[560px] lg:w-[620px] aspect-[1557/1131] flex items-center justify-center">
+                            {/* Card ảnh quà tặng - Co giãn linh hoạt theo viewport width (% màn hình) */}
+                            <div className="w-[85vw] max-w-[340px] sm:max-w-[480px] md:max-w-[580px] lg:max-w-[650px] aspect-[1557/1131] flex items-center justify-center mx-auto">
                                 <img
                                     src={item.image}
                                     alt={`Quà ${item.id}`}
-                                    className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] pointer-events-none"
+                                    className="w-full h-full object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.4)] pointer-events-none"
                                     loading="eager"
                                 />
                             </div>
