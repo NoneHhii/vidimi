@@ -10,8 +10,7 @@ export const HowItWorksSection: React.FC = () => {
         <section
             className="relative w-full min-h-screen text-white selection:bg-[#b600c4] selection:text-white font-sans flex flex-col overflow-hidden"
         >
-            {/* KHU VỰC TEXT (Có nền #1E0A4D như yêu cầu) */}
-            <div className="w-full bg-[#1E0A4D] relative z-30 pt-24 pb-16 px-4 md:px-8 flex flex-col items-center shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+            <div className="w-full bg-[#1E0A4D] relative z-30 pt-16 sm:pt-20 md:pt-24 pb-10 sm:pb-16 px-4 md:px-8 flex flex-col items-center shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -20,25 +19,25 @@ export const HowItWorksSection: React.FC = () => {
                     className="text-center max-w-xl"
                 >
                     <h2
-                        className="text-4xl sm:text-5xl md:text-6xl font-[900] tracking-wide text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
+                        className="text-3xl sm:text-5xl md:text-6xl font-[900] tracking-wide text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]"
                     >
                         Cách hoạt động
                     </h2>
-                    <p className="mt-4 text-sm sm:text-base text-purple-100/90 font-medium tracking-wide">
+                    <p className="mt-2 sm:mt-4 text-xs sm:text-base text-purple-100/90 font-medium tracking-wide">
                         3 bước đơn giản biến hóa đơn thành điểm thưởng
                     </p>
                 </motion.div>
             </div>
 
-            {/* KHU VỰC TRUNG TÂM - 3 THẺ TĨNH TRÊN NỀN TRONG SUỐT (Thấy trọn vẹn Parallax) */}
-            <div className="relative z-20 w-full flex-1 flex flex-col justify-center px-4 md:px-8 py-10">
+            {/* KHU VỰC TRUNG TÂM */}
+            <div className="relative z-20 w-full flex-1 flex flex-col justify-center px-4 md:px-8 py-8 sm:py-12">
                 {/* Các thẻ Items */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, staggerChildren: 0.2 }}
-                    className="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start pt-6 pb-12"
+                    className="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-8 items-start pt-4 sm:pt-6 pb-8 sm:pb-12"
                 >
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
                         <StepCard

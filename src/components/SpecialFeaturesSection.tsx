@@ -5,18 +5,18 @@ import whiteSpecialTextSvg from "../assets/white_special_text.svg";
 
 export const SpecialFeaturesSection: React.FC = () => {
     return (
-        <section className="relative w-full min-h-[85vh] pt-24 pb-16 lg:pt-40 lg:pb-20 px-3 md:px-8 flex flex-col justify-center">
+        <section className="relative w-full min-h-[85vh] pt-16 pb-12 sm:pt-24 sm:pb-16 lg:pt-40 lg:pb-20 px-3 md:px-8 flex flex-col justify-center overflow-hidden">
             {/* Tiêu đề chính */}
             <motion.div
                 initial={{ opacity: 0, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start mb-12 md:mb-32 px-2 md:pl-10"
+                className="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start mb-8 sm:mb-20 md:mb-32 px-4 sm:px-6 md:pl-10"
             >
                 {/* Khối chữ bên trái */}
                 <div
-                    className="flex flex-col items-start text-left z-30 relative -translate-x-10 sm:translate-x-0"
+                    className="flex flex-col items-start text-left z-30 relative translate-x-0"
                     style={{
                         fontFamily: '"Goldman", sans-serif'
                     }}
@@ -35,13 +35,13 @@ export const SpecialFeaturesSection: React.FC = () => {
                             Vidimi
                         </span>
 
-                        {/* Chữ Đặc biệt xoay nghiêng - Đỉnh cao hơn & Kéo sang phải riêng cho Mobile */}
+                        {/* Chữ Đặc biệt xoay nghiêng */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.6, y: 30 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7, type: "spring", bounce: 0.45, delay: 0.2 }}
-                            className="absolute left-[100%] sm:left-[45%] md:left-[65%] lg:left-[95%] -top-[150%] sm:-top-[100%] md:-top-[140%] lg:-top-[175%] z-10 w-[170px] xs:w-[210px] sm:w-[350px] md:w-[480px] lg:w-[630px] pointer-events-none"
+                            className="absolute left-[100%] sm:left-[98%] md:left-[98%] lg:left-[95%] -top-[125%] sm:-top-[115%] md:-top-[125%] lg:-top-[175%] z-10 w-[155px] sm:w-[260px] md:w-[360px] lg:w-[630px] pointer-events-none"
                         >
                             <div className="relative w-full h-full">
                                 {/* Lớp SVG trắng */}
@@ -63,7 +63,7 @@ export const SpecialFeaturesSection: React.FC = () => {
                 </div>
             </motion.div>
 
-            {/* 4 Thẻ Tính năng (Glassmorphism dạng card mờ) */}
+            {/* Thẻ Tính năng */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

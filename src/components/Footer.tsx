@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
     return (
         <footer className="bg-[#261E47] text-[#D1CDE5] py-12 px-6 md:px-12 w-full text-xs md:text-sm">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
-                {/* Cột 1: Thông tin công ty */}
+                {/* Thông tin công ty */}
                 <div className="md:w-5/12 flex flex-col gap-4">
                     <h3 className="uppercase font-semibold tracking-wider text-white">
                         CÔNG TY TNHH CÔNG NGHỆ VIDIMI
@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Cột 2: Thông tin */}
+                {/* Thông tin */}
                 <div className="md:w-2/12 flex flex-col gap-4">
                     <h3 className="font-semibold text-white">Thông tin</h3>
                     <ul className="flex flex-col gap-2">
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
                     </ul>
                 </div>
 
-                {/* Cột 3: Hỗ trợ khách hàng */}
+                {/* Hỗ trợ khách hàng */}
                 <div className="md:w-3/12 flex flex-col gap-4">
                     <h3 className="font-semibold text-white">Hỗ trợ khách hàng</h3>
                     <ul className="flex flex-col gap-2">
@@ -48,8 +48,8 @@ export const Footer: React.FC = () => {
                     </ul>
                 </div>
 
-                {/* Cột 4: Nút tải App */}
-                <div className="md:w-2/12 flex flex-row  items-end justify-end gap-3 pb-2">
+                {/* Nút tải App */}
+                <div className="w-full md:w-2/12 flex flex-row items-center justify-start md:justify-end gap-3 pt-2 md:pt-0 pb-2">
                     <a href="#" className="hover:scale-105 active:scale-95 transition-transform block drop-shadow-md">
                         <img src={imgStore1} alt="Tải app 1" className="h-[36px] md:h-[42px] object-contain" />
                     </a>

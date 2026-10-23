@@ -23,23 +23,23 @@ const MARQUEE_ITEMS = [...REWARD_ITEMS, ...REWARD_ITEMS, ...REWARD_ITEMS, ...REW
 
 export const RewardsSection: React.FC = () => {
     return (
-        <section className="relative w-full min-h-[500px] sm:min-h-[620px] md:min-h-[720px] flex flex-col justify-start overflow-hidden font-sans select-none pt-10 sm:pt-16 pb-16">
+        <section className="relative w-full max-w-full min-h-[460px] sm:min-h-[580px] md:min-h-[720px] flex flex-col justify-start overflow-hidden font-sans select-none pt-8 sm:pt-14 pb-12 sm:pb-16">
 
-            {/* Tiêu đề "Quà Tặng" căn lề tự nhiên */}
+            {/* Tiêu đề "Quà Tặng" */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="w-full max-w-7xl mx-auto px-6 sm:px-12 md:px-20 mb-6 sm:mb-10 md:mb-14 z-20 pointer-events-none"
+                className="w-full max-w-7xl mx-auto px-4 sm:px-12 md:px-20 mb-4 sm:mb-8 md:mb-12 z-20 pointer-events-none"
             >
-                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.8rem] font-black text-white tracking-wide capitalize drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
+                <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-[4.8rem] font-black text-white tracking-wide capitalize drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
                     Quà Tặng
                 </h2>
             </motion.div>
 
-            {/* Khung chứa Marquee - Ép w-full căn giữa chuẩn tuyệt đối */}
-            <div className="w-full relative z-10 flex items-center justify-center overflow-hidden">
+            {/* Khung chứa Marquee */}
+            <div className="w-full max-w-full relative z-10 flex items-center justify-center overflow-hidden">
                 <motion.div
                     className="flex items-center w-max"
                     style={{
@@ -57,11 +57,10 @@ export const RewardsSection: React.FC = () => {
                     {MARQUEE_ITEMS.map((item, index) => (
                         <div
                             key={`${item.id}-${index}`}
-                            /* Thay w-screen bằng w-[100vw] kèm flex justify-center */
-                            className="w-[100vw] flex-shrink-0 flex items-center justify-center px-4"
+                            className="w-screen max-w-full flex-shrink-0 flex items-center justify-center px-2 sm:px-4"
                         >
-                            {/* Card ảnh quà tặng - Co giãn linh hoạt theo viewport width (% màn hình) */}
-                            <div className="w-[85vw] max-w-[340px] sm:max-w-[480px] md:max-w-[580px] lg:max-w-[650px] aspect-[1557/1131] flex items-center justify-center mx-auto">
+                            {/* Card ảnh quà tặng */}
+                            <div className="w-[88vw] max-w-[310px] sm:max-w-[450px] md:max-w-[560px] lg:max-w-[650px] aspect-[1557/1131] flex items-center justify-center mx-auto">
                                 <img
                                     src={item.image}
                                     alt={`Quà ${item.id}`}

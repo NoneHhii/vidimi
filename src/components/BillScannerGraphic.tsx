@@ -7,24 +7,22 @@ interface Props {
 }
 
 export const BillScannerGraphic: React.FC<Props> = ({ progress }) => {
-    // Transform values theo scroll progress (0 -> 1)
     const cameraScale = useTransform(progress, [0, 0.25, 0.6, 0.85], [1.3, 1, 1, 0.7]);
     const cameraOpacity = useTransform(progress, [0, 0.1, 0.75, 0.9], [0, 1, 1, 0]);
     const laserTop = useTransform(progress, [0.2, 0.65], ["5%", "95%"]);
     const laserOpacity = useTransform(progress, [0.15, 0.25, 0.6, 0.7], [0, 1, 1, 0]);
 
-    // Hiệu ứng bung quà & coin nổ tung ở giai đoạn cuối (0.6 -> 0.9)
     const burstScale = useTransform(progress, [0.65, 0.85], [0.2, 1.8]);
     const burstOpacity = useTransform(progress, [0.65, 0.75, 0.95, 1], [0, 1, 1, 0]);
 
     return (
         <div className="relative w-72 sm:w-80 h-96 flex items-center justify-center">
-            {/* 1. KHUNG CAMERA SCANNER */}
+            {/* KHUNG CAMERA SCANNER */}
             <motion.div
                 style={{ scale: cameraScale, opacity: cameraOpacity }}
                 className="absolute inset-0 pointer-events-none z-30 flex flex-col justify-between p-2"
             >
-                {/* 4 Góc Viewfinder Camera */}
+                {/* Góc Viewfinder Camera */}
                 <div className="flex justify-between">
                     <div className="w-8 h-8 border-t-4 border-l-4 border-amber-400 rounded-tl-xl shadow-[0_0_12px_#fbbf24]" />
                     <div className="w-8 h-8 border-t-4 border-r-4 border-amber-400 rounded-tr-xl shadow-[0_0_12px_#fbbf24]" />
@@ -33,8 +31,6 @@ export const BillScannerGraphic: React.FC<Props> = ({ progress }) => {
                     <div className="w-8 h-8 border-b-4 border-l-4 border-amber-400 rounded-bl-xl shadow-[0_0_12px_#fbbf24]" />
                     <div className="w-8 h-8 border-b-4 border-r-4 border-amber-400 rounded-br-xl shadow-[0_0_12px_#fbbf24]" />
                 </div>
-
-                {/* Tia Laser quét hóa đơn */}
                 <motion.div
                     style={{ top: laserTop, opacity: laserOpacity }}
                     className="absolute left-4 right-4 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_20px_#22d3ee] flex items-center justify-center"
@@ -45,7 +41,6 @@ export const BillScannerGraphic: React.FC<Props> = ({ progress }) => {
                 </motion.div>
             </motion.div>
 
-            {/* 2. TỜ HÓA ĐƠN (BILL) VỚI CHIỀU SÂU 3D */}
             <motion.div
                 initial={{ rotateY: -10, rotateX: 5 }}
                 className="w-60 h-80 bg-gradient-to-b from-white to-slate-100 text-slate-800 rounded-2xl p-5 shadow-[0_25px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(147,51,234,0.3)] border border-white/60 relative overflow-hidden flex flex-col justify-between"

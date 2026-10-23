@@ -8,10 +8,14 @@
   --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+html,
 body {
   font-family: var(--font-sans);
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 /* Áp dụng chung một font-family cho tất cả các thẻ tiêu đề */

@@ -40,11 +40,11 @@ const HomePage: React.FC = () => {
                                 font-extrabold
                                 tracking-tight
                                 leading-tight
-                                mb-5
+                                mb-3 sm:mb-4 lg:mb-5
                                 drop-shadow-[0_6px_8px_rgba(0,0,0,0.35)]
                             "
                                 style={{
-                                    fontSize: "clamp(3.2rem, 6vw, 4.8rem)",
+                                    fontSize: "clamp(2.8rem, 5.5vw, 4.8rem)",
                                 }}
                             >
                                 <span className="block">
@@ -71,18 +71,18 @@ const HomePage: React.FC = () => {
 
                             {/* Mô tả phụ */}
                             <p
-                                className="text-white/90 text-xs md:text-sm lg:text-base max-w-md italic font-normal leading-relaxed drop-shadow-md mt-2"
+                                className="text-white/90 text-xs md:text-sm lg:text-base max-w-md italic font-normal leading-relaxed drop-shadow-md mt-1 sm:mt-2"
                             >
                                 Chụp bất kỳ hóa đơn mua sắm ở bất kỳ địa điểm nào và tích lũy điểm thưởng để nhận được những phần quà hoặc ưu đãi mà chúng tôi mang lại.
                             </p>
                         </div>
 
-                        {/* Cột phải: Video bay 3D tách nền xanh */}
-                        <div className="flex relative w-full lg:w-[900px] h-[350px] lg:h-[550px] items-end justify-center lg:right-4 mt-12 lg:mt-0 scale-110 sm:scale-125 lg:scale-[1.3] origin-bottom lg:self-end translate-y-[30%] lg:translate-y-[30%]">
+                        {/* Cột phải: Video bay 3D - Tỷ lệ % mượt mà, giữ nguyên Ảnh 1 ở mobile, không phình to ở tablet, không giật scale */}
+                        <div className="flex relative w-full max-w-[min(100%,520px)] lg:max-w-none lg:w-[clamp(680px,54vw,880px)] h-[clamp(320px,48vw,420px)] lg:h-[550px] items-end justify-center lg:right-4 mt-2 sm:mt-2 lg:mt-0 scale-110 md:scale-130 lg:scale-[1.25] origin-bottom lg:self-end translate-y-[40%] sm:translate-y-[28%] md:translate-y-[20%] lg:translate-y-[28%]">
                             <div className="w-full flex justify-center">
                                 <ChromaKeyVideo
                                     src={bannerVideo}
-                                    className="w-[140%] lg:w-[170%] max-w-[1400px]"
+                                    className="w-[140%] lg:w-[160%] max-w-[1400px]"
                                     width={1200}
                                     height={1200}
                                 />
@@ -109,7 +109,7 @@ const HomePage: React.FC = () => {
                     <RewardsSection />
                 </div>
 
-            </div> {/* Kết thúc nội dung trang */}
+            </div>
         </div>
     );
 };
