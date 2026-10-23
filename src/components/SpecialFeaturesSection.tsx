@@ -27,7 +27,7 @@ export const SpecialFeaturesSection: React.FC = () => {
                     >
                         Điều gì khiến
                     </p>
-                    <div className="relative flex items-center">
+                    <div className="relative flex flex-col sm:flex-row sm:items-center">
                         <span
                             className="text-[2.6rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[8rem] font-bold text-white leading-none relative z-20"
                             style={{ textShadow: "0px 4px 20px #000000" }}
@@ -35,13 +35,13 @@ export const SpecialFeaturesSection: React.FC = () => {
                             Vidimi
                         </span>
 
-                        {/* Chữ Đặc biệt xoay nghiêng */}
+                        {/* Text Đặc biệt */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.6, y: 30 }}
                             whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7, type: "spring", bounce: 0.45, delay: 0.2 }}
-                            className="absolute left-[100%] sm:left-[98%] md:left-[98%] lg:left-[95%] -top-[125%] sm:-top-[115%] md:-top-[125%] lg:-top-[175%] z-10 w-[155px] sm:w-[260px] md:w-[360px] lg:w-[630px] pointer-events-none"
+                            className="relative sm:absolute -mt-4 sm:mt-0 left-1 sm:left-[98%] md:left-[98%] lg:left-[95%] top-0 sm:-top-[115%] md:-top-[125%] lg:-top-[175%] z-10 w-[220px] sm:w-[260px] md:w-[360px] lg:w-[630px] pointer-events-none rotate-[20.86deg] sm:rotate-0 origin-top-left"
                         >
                             <div className="relative w-full h-full">
                                 {/* Lớp SVG trắng */}

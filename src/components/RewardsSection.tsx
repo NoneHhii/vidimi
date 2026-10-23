@@ -33,7 +33,7 @@ export const RewardsSection: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 className="w-full max-w-7xl mx-auto px-4 sm:px-12 md:px-20 mb-4 sm:mb-8 md:mb-12 z-20 pointer-events-none"
             >
-                <h2 className="text-2xl sm:text-5xl md:text-6xl lg:text-[4.8rem] font-black text-white tracking-wide capitalize drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.8rem] font-black text-white tracking-wide capitalize drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
                     Quà Tặng
                 </h2>
             </motion.div>

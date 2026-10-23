@@ -121,7 +121,11 @@ export const ChromaKeyVideo: React.FC<ChromaKeyVideoProps> = ({ src, className =
     }, [width, height]);
 
     return (
-        <div ref={containerRef} className={`relative ${className}`} style={{ width: '100%', aspectRatio: `${width}/${height}` }}>
+        <div
+            ref={containerRef}
+            className={`relative ${className}`}
+            style={{ width: '100%', aspectRatio: `${width}/${height}` }}
+        >
             {/* Video gốc bị ẩn đi */}
             <video
                 ref={videoRef}

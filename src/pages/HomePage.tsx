@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
                         </div>
 
                         {/* Cột phải: Video bay 3D - Tỷ lệ % mượt mà, giữ nguyên Ảnh 1 ở mobile, không phình to ở tablet, không giật scale */}
-                        <div className="flex relative w-full max-w-[min(100%,520px)] lg:max-w-none lg:w-[clamp(680px,54vw,880px)] h-[clamp(320px,48vw,420px)] lg:h-[550px] items-end justify-center lg:right-4 mt-2 sm:mt-2 lg:mt-0 scale-110 md:scale-130 lg:scale-[1.25] origin-bottom lg:self-end translate-y-[40%] sm:translate-y-[28%] md:translate-y-[20%] lg:translate-y-[28%]">
+                        <div className="flex relative w-full max-w-[min(100%,520px)] lg:max-w-none lg:w-[clamp(680px,54vw,880px)] h-[clamp(320px,48vw,420px)] lg:h-[550px] items-end justify-center lg:right-4 mt-2 sm:mt-2 lg:mt-0 scale-110 md:scale-130 lg:scale-[1.25] origin-bottom lg:self-end translate-y-[25%] sm:translate-y-[28%] md:translate-y-[20%] lg:translate-y-[28%]">
                             <div className="w-full flex justify-center">
                                 <ChromaKeyVideo
                                     src={bannerVideo}
